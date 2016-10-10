@@ -1,0 +1,179 @@
+@import "bootstrap-compass";
+@import "bootstrap-variables";
+@import "bootstrap";
+
+header,
+section,
+footer,
+aside,
+nav,
+main,
+article,
+figure {
+    display: block;
+}
+body {
+    font-family: Arial, Helvetica, Verdana, "微軟正黑體";
+    padding-top: 50px;
+    line-height: 30px;
+    margin: 0;
+    font-size: 16px;
+    position: relative;
+    background: #75e5c8;
+    text-align: center;
+}
+h1, h2 {
+    // margin: 0;
+}
+a {
+    display: block;
+    text-decoration: none;
+}
+span {
+    display: block;
+}
+p {
+    margin: 0;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        list-style: none;
+    }
+}
+input {
+    padding: 6px 12px;
+}
+img {
+    vertical-align: top;
+}
+::-webkit-input-placeholder {
+    font-weight: normal;
+}
+:-moz-placeholder {
+    /* Firefox 18- */
+    font-weight: normal;
+}
+::-moz-placeholder {
+    /* Firefox 19+ */
+    font-weight: normal;
+}
+:-ms-input-placeholder {
+    font-weight: normal;
+}
+button {
+    padding: 0px;
+    border: none;
+    background: transparent;
+    &:focus {
+        outline: 0;
+    }
+}
+input[type=text],
+input[type=password],
+input[type=submit],
+textarea {
+    &:focus {
+        outline: 0;
+    }
+}
+
+.grid{
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+.col{
+	display:table-cell;
+}
+
+section {
+	// &:nth-child(odd) {
+	// 	background: gray;
+	// }
+	// &:nth-child(even) {
+	// 	background: black;
+	// }
+}
+span.link-down{
+  text-align:center;
+  font-size: 3em;
+  i{
+    color: #333;
+    cursor:pointer;
+  }
+}
+.block {
+    width: 100%;
+    margin: 0 auto;
+    padding: 35px 0;
+    h2 {
+    	font-weight: bold;
+    	font-size: 2.5em;
+    	margin: 20px 0;
+    }
+    .content {
+        width: 90%;
+        margin: 25px auto;
+        p {
+        	text-align: left;
+        	line-height: 1.8em;
+        	margin: 5px 0;
+        	&.q {
+        		font-weight: bold;
+        		color: blue;
+        	}
+        }
+        span {
+        	&.title {
+        		font-size: 1.5em;
+        		font-weight: bold;
+        		margin: 10px 0;
+        	}
+        	&.highlight {
+        		display: inline-block;
+        		color: red;
+        	}
+        }
+        img {
+        	width: 100%;
+        	height: auto;
+        }
+        a{
+            &.inline {
+        	   display: inline;
+            }
+            &.fb-msg {
+                display: inline-block;
+                border-radius: 20px;
+                padding: 8px 10px;
+                color: white;
+                background: #3B5998;
+            }
+        }
+        .post-list {
+        	.post {
+        		width: 31%; 
+        		display: inline-block;
+        		margin-right: 2%;
+        		vertical-align: top;
+        		span {
+        			font-weight: bold;
+        		}
+        		a {
+        			display: inline-block;
+        		}
+        		&:nth-child(3n) {
+        			margin-right: 0px;
+        		}
+        	}
+        	&::after {
+		        content: '';
+		        display: block;
+		        clear: both;
+		    }
+        }
+    }
+}
