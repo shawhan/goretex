@@ -1,0 +1,94 @@
+{
+	"banner" : [
+	{
+		"title" : "10",
+		"photo" : "http://placehold.it/800x550",
+		"url" : "http://google.com",
+		"sort" : "10"
+	},{
+		"title" : "5",
+		"photo" : "http://placehold.it/800x550",
+		"url" : "http://google.com",
+		"sort" : "5"
+	}],
+	"news" : [
+	{
+		"title" : "最新消息1",
+		"url" : ""
+	}],
+	"media" : [
+	{
+		"title" : "鼻子超挺123",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	}],
+	"case" : [
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	}],
+	"activity" : [
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	},
+	{
+		"title" : "鼻子超挺",
+		"photo" : "img/example.jpg"
+	}]
+}
