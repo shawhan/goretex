@@ -132,6 +132,9 @@ span.link-down{
         		font-weight: bold;
         		color: blue;
         	}
+            &.center {
+                text-align: center;
+            }
         }
         span {
         	&.title {
@@ -158,6 +161,12 @@ span.link-down{
                 padding: 8px 10px;
                 color: white;
                 background: #3B5998;
+            }
+            &.line {
+                background: transparent url(../img/LINE_Icon.png) scroll no-repeat 0px 50%;
+                background-size: 28px;
+                text-indent: 32px;
+                display: inline-block;
             }
         }
         .post-list {
