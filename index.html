@@ -5,11 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>卡麥拉</title>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta property="og:title" content="多力波 邁氏波"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="https://shawhan.github.io/goretex/"/>
+	<meta property="og:image" content="https://shawhan.github.io/goretex/img/og.jpg"/>
+	<meta property="og:description" content=""/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/iziModal1.3.0.min.css">
+	<link rel="stylesheet" href="css/jquery.colorbox.css">
 	<link rel="stylesheet" href="owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="owl-carousel/owl.theme.css">
-	<link rel="stylesheet" href="css/styles.css?v=2">
+	<link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -23,7 +30,7 @@
           <a class="navbar-brand" href="#">CHIMERA 卡麥拉鼻膜</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav" id="menu">
           	<li><a href="#case">見證</a></li>
             <li><a href="#about">什麼是卡麥拉</a></li>
             <li><a href="#qa">Q&A</a></li>
@@ -34,7 +41,7 @@
         </div>
       </div>
     </nav>
-    <div class="container">
+    <div class="container main-cocontainer">
     	 <section id="carasoul"><div class="block" style="padding: 10px 0;">
 	        <div id="photo-carasoul" class="owl-carousel owl-theme"></div>
 	        <span class="link-down"><i class="fa fa-caret-down"></i></span>
@@ -59,7 +66,7 @@
 			<div class="content">
 				<span class="title">卡麥拉材質簡介</span>
 				<p>卡麥拉鼻膜由美國生產製造，通過最嚴格的美國 FDA 安全認證，相較於其他韓國或中國品牌，安全更有保障。</p>
-				<img src="img/example.jpg">
+				<img src="img/about-1.jpg">
 				<ul>
 					<li>內層矽膠彈性體</li>
 					<li>自然支撐，立體塑形</li>
@@ -69,22 +76,16 @@
 			</div>
 			<div class="content">
 				<span class="title">卡麥拉比較表</span>
-				<img src="img/example.jpg">
+				<img src="img/about-2.jpg">
 			</div>
 		</div></section>
 		<section id="qa"><div class="block">
 			<h2>美鼻Q&A</h2>
 			<div class="content">
-				<p class="q">注射填充微整型 V.S. 人工植入物隆鼻手術的差異</p>
-				<p class="a"><span class="highlight">注射隆鼻</span>的侵入性較低、恢復期短，能比較快抮看到效果。但因為注射物皆為半液態的材料，塑性後的漂亮鼻形隨時間過去，容易因為重力而坍塌，形成寬且粗壯的鼻形；此外，注射物會被人體吸收，除了定期施打彊用更高之外，如鼻翼兩側吸收抮度不同，也會造成歪鼻不對稱的狀況，還要注意注射時是否確實無菌消毒，避免發生術後延遲性感染的問題。</p>
-				<p class="a"><span class="highlight">人工植入物隆鼻</span>可長期解決輸廓扁平的困擾，一勞永逸，但必須慎選材質及尋找有經驗的醫師進行手術。</p>
-				<p class="q">卡麥拉鼻膜、改良式矽膠及 GORE-TEX 的差異是甚麼？</p>
-				<p class="a"><span class="highlight">矽膠</span>本身具有良好的彈性支撐，能撐起鼻子形狀，但即便是改良後孔洞設計式的矽膠，仍無法改變本身容易位移穿出及莢膜攣縮的風險，幾年內有可能產生歪鼻、變形而需取出重做的風險。</p>
-				<p class="a"><span class="highlight">GORE-TEX</span> 佈滿微米等級的孔洞，可以讓人體組織生長彋附，不易產生位移或歪鼻，且材質的生物相容性佳，不易產生莢膜攣縮；但GORE-TEX無彈性、孔隙多，未來鼻膜可能會逐漸壓縮，鼻子高度變低。</li></p>
-				<p class="a"><span class="highlight">卡麥拉</span>擷取兩種材質的優點，以GORE-TEX包覆矽膠，生物相容性高、不易產生莢膜攣縮，讓鼻模保有矽膠的支撐彈性，擁有自然挺度，而薄薄一層的GORE-TEX，讓組織生長、鼻模不滑動，且不會壓縮鼻子高度。</p>
+				<img src="img/qa.jpg">
 				<p class="q">隆鼻術後護理重點</p>
 				<ul style="text-align: left;">
-					<li>前及術後請戒煙，有助傷口復原速度</li>
+					<li>術前及術後請戒煙，有助傷口復原速度</li>
 					<li>冰敷一周並避免趴睡、碰撞</li>
 					<li>按時回診遵循醫師指示，確認隆鼻術後效果</li>
 				</ul>
@@ -102,7 +103,7 @@
 			<h2>美人還有疑問？</h2>
 			<div class="content">
 				<a href="https://www.facebook.com/messages/947573531998971" target="_blank" class="fb-msg"><i class="fa fa-facebook"></i> Facebook 私訊</a>
-				<p style="text-align: center;">LINE ID: <a class="inline" href="https://line.naver.jp/ti/p/@bwk8213k" target="_blank">@bwk8213k</a></p>
+				<p class="center"><a class="inline line" href="https://line.naver.jp/ti/p/@bwk8213k" target="_blank">@bwk8213k</a></p>
 			</div>
 		</div></section>
 	</div>
@@ -111,7 +112,7 @@
 	<script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
-	<script type="text/javascript" src="js/iziModal1.3.0.min.js"></script>
-	<script type="text/javascript" src="js/main.js?v=1"></script>
+	<script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
+	<script type="text/javascript" src="js/main.js?v=3"></script>
 </body>
 </html>
