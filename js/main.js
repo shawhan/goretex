@@ -1,7 +1,42 @@
 jQuery(function($){
-  $('body').on('click', '.link-down', function(e){
-    $("html, body").animate({scrollTop: $(window).height()}, 500)
+  $(window).scroll(function() {
+    var windowScroll = $(window).scrollTop();
+    $('.main-cocontainer section').each(function(i) {
+        var id = $(this).attr("id");
+        if ($(this).position().top <= (windowScroll + $('.navbar-header').height()) ) {
+            $("#menu li.active").removeClass('active');
+            $("#menu a[href='#"+id+"']").parent().addClass('active');
+        }
+    });
+
+    if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+      $("#menu li.active").removeClass('active');
+      $("#menu a[href='#contact']").parent().addClass('active');
+    }
+  }).scroll();
+
+  $('body').on('click', '#menu a', function(e){
+    e.preventDefault();
+    var hash = this.hash;
+    var target = $(hash);
+
+    if($(".navbar-toggle").is(":visible") && $("#navbar").hasClass("in") === true){
+      $(".navbar-toggle").click();
+    }
+
+    $("#menu li.active").removeClass('active');
+    $(this).parent().addClass('active');
     
+    $('html, body').stop().animate({
+      'scrollTop': target.offset().top - ($('.navbar-header').height()/2)
+    }, 800, function () {
+      window.location.hash = hash;
+    });
+
+  }).on("click", ".link-down", function(e){
+    e.preventDefault();
+    $('#menu a[href="#about"').click();
+
   }).on("click", ".post a.colorbox", function(e){
     e.preventDefault();
     $.colorbox({
