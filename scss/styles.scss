@@ -19,7 +19,7 @@ body {
     margin: 0;
     font-size: 16px;
     position: relative;
-    background: #75e5c8;
+    background: #FFF;
     text-align: center;
 }
 h1, h2 {
@@ -89,14 +89,13 @@ textarea {
 	display:table-cell;
 }
 
-section {
-	// &:nth-child(odd) {
-	// 	background: gray;
-	// }
-	// &:nth-child(even) {
-	// 	background: black;
-	// }
+#carasoul, #contact{
+    background: #E1EAE5;
 }
+#case, #media, #activity {
+    background: #Adc4b0;
+}
+
 span.link-down{
   text-align:center;
   font-size: 3em;
@@ -106,6 +105,11 @@ span.link-down{
   }
 }
 
+.main-cocontainer {
+    margin: 0 auto;
+    padding: 0px;
+    width: 100%;
+}
 #photo-carasoul {
     img {
         max-width: 100%;
@@ -113,13 +117,16 @@ span.link-down{
     }
 }
 .block {
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     padding: 35px 0;
     h2 {
     	font-weight: bold;
     	font-size: 2.5em;
     	margin: 20px 0;
+        // border-bottom: 5px solid #E1EAE5;
+        // display: inline-block;
+        // padding-bottom: 5px;
     }
     .content {
         width: 90%;
@@ -130,7 +137,7 @@ span.link-down{
         	margin: 5px 0;
         	&.q {
         		font-weight: bold;
-        		color: blue;
+                color: #666;
         	}
             &.center {
                 text-align: center;
