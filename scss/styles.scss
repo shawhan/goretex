@@ -89,6 +89,21 @@ textarea {
 	display:table-cell;
 }
 
+
+.navbar {
+    background: #E1EAE5;
+    // .navbar-brand {
+    //     &:hover {
+    //     }
+    // }
+    // .navbar-nav > li > a {
+    // }
+    .navbar-nav > li.active > a {
+        background: #C5E4E3;
+        color: #000;
+    }
+}
+
 #carasoul, #contact{
     background: #E1EAE5;
 }
