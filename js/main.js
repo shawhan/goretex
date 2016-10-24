@@ -40,16 +40,16 @@ jQuery(function($){
   }).on("click", ".post a.colorbox", function(e){
     e.preventDefault();
     $.colorbox({
-      'maxWidth': '80%',
-      'maxHeight': '80%',
+      'maxWidth': '90%',
+      // 'maxHeight': '80%',
       'href' : $(this).attr('href'),
       'title' : $(this).attr('title'),
-      'onComplete': function() {
-        $("body").css({"overflow-y":"hidden"});
-      },
-      'onClosed' : function() {
-        $("body").css({"overflow-y":"visible"});
-      }
+      // 'onComplete': function() {
+      //   $("body").css({"overflow-y":"hidden"});
+      // },
+      // 'onClosed' : function() {
+      //   $("body").css({"overflow-y":"visible"});
+      // }
     }); 
   });
   
@@ -77,7 +77,15 @@ jQuery(function($){
 
       var media_html = "";
       $.each(data.media, function(k, v){
-        media_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'"><img src="'+v.photo+'"><span>'+v.title+'</span></a></div>';
+        media_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'"><img src="'+v.photo+'">';
+        media_html += '<span>'+v.title+'</span></a>';
+        if (v.date !== "") {
+          media_html += '<span class="date">'+v.date+'</span>';
+        }
+        if (v.media !== "") {
+          media_html += '<span>'+v.media+'</span>';
+        }
+        media_html += '</div>';
       });
       $('.media-list').append(media_html);
 
