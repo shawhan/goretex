@@ -91,7 +91,14 @@ jQuery(function($){
 
       var case_html = "";
       $.each(data.case, function(k, v){
-        case_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'"><img src="'+v.photo+'"><span>'+v.title+'</span></a></div>';
+        if (v.url !== "") {
+          case_html += '<div class="post"><a href="'+v.url+'" target="_blank">';
+          case_html += '<img src="'+v.photo+'"><span>'+v.title+'</span>';
+          case_html += '</a><span class="date">'+v.date+'</span></div>';
+        } else {
+          case_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'"><img src="'+v.photo+'"><span>'+v.title+'</span></a></div>';
+      
+        }
       });
       $('.case-list').append(case_html);
 
