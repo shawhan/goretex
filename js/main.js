@@ -97,7 +97,6 @@ jQuery(function($){
 
     var media_html = "";
     $.each(data.media, function(k, v){
-      console.log(v);
       media_html += '<div class="post">';
       switch(v.type) {
         case '':
@@ -113,6 +112,9 @@ jQuery(function($){
       media_html += '<img src="'+v.photo+'"><span>'+v.title+'</span></a>';
       if (v.date !== "") {
         media_html += '<span class="date">'+v.date+'</span>';
+      }
+      if (v.media !== "") {
+        media_html += '<span>'+v.media+'</span>';
       }
       media_html += '</div>';
     });
