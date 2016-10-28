@@ -51,61 +51,90 @@ jQuery(function($){
       //   $("body").css({"overflow-y":"visible"});
       // }
     }); 
+  }).on("click", ".post a.colorbox-youtube", function(e){
+    e.preventDefault();
+    $.colorbox({
+        'width' : '70%',
+        'height' : '70%',
+        'href' : 'https://www.youtube.com/embed/'+$(this).attr('data-id')+'?autoplay=1&rel=0',
+        'iframe' : true,
+        'onComplete': function() {
+            $("body").css({"overflow-y":"hidden"});
+            $(".cboxIframe").attr('webkitallowfullscreen', '').attr('mozallowfullscreen', '').attr('allowFullScreen', '');
+        },
+        'onClosed' : function() {
+            $("body").css({"overflow-y":"visible"});
+        }
+    });
   });
   
-  $.getJSON("data.json", function(data) {
-      console.log(data);
-      var banner_html = "";
-      $.each(data.banner, function(k, v){
-        //TODO order by sort ASC
-        banner_html += '<div class="item"><a href="'+v.url+'" target="_blank">';
-        banner_html += '<img src="'+v.photo+'" alt="'+v.title+'"></a></div>';
-      });
+  $.ajax({
+      type: "GET",
+      url: "http://data.beautynose.com.tw/output",
+      dataType: 'json',
+  }).done(function (data) {
+    console.log(data);
 
-      $('#photo-carasoul').append(banner_html).owlCarousel({
-        slideSpeed : 300,
-        paginationSpeed : 400,
-        singleItem: true,
-        autoPlay: true
-      });
-
-      var news_html = "";
-      $.each(data.news, function(k, v){
-        news_html += '<li><a href="'+v.url+'">'+v.title+'</a></li>';
-      });
-      $('.news-list ul').append(news_html);
-
-      var media_html = "";
-      $.each(data.media, function(k, v){
-        media_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'"><img src="'+v.photo+'">';
-        media_html += '<span>'+v.title+'</span></a>';
-        if (v.date !== "") {
-          media_html += '<span class="date">'+v.date+'</span>';
-        }
-        if (v.media !== "") {
-          media_html += '<span>'+v.media+'</span>';
-        }
-        media_html += '</div>';
-      });
-      $('.media-list').append(media_html);
-
-      var case_html = "";
-      $.each(data.case, function(k, v){
-        if (v.url !== "") {
-          case_html += '<div class="post"><a href="'+v.url+'" target="_blank">';
-          case_html += '<img src="'+v.photo+'"><span>'+v.title+'</span>';
-          case_html += '</a><span class="date">'+v.date+'</span></div>';
-        } else {
-          case_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'"><img src="'+v.photo+'"><span>'+v.title+'</span></a></div>';
-      
-        }
-      });
-      $('.case-list').append(case_html);
-
-      var activity_html = "";
-      $.each(data.activity, function(k, v){
-        activity_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'"><img src="'+v.photo+'"><span>'+v.title+'</span></a></div>';
-      });
-      $('.activity-list').append(activity_html);
+    var banner_html = "";
+    $.each(data.banner, function(k, v){
+      //TODO order by sort ASC
+      banner_html += '<div class="item"><a href="'+v.url+'" target="_blank">';
+      banner_html += '<img src="'+v.photo+'" alt="'+v.title+'"></a></div>';
     });
+
+    $('#photo-carasoul').append(banner_html).owlCarousel({
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem: true,
+      autoPlay: true
+    });
+
+    var news_html = "";
+    $.each(data.news, function(k, v){
+      news_html += '<li><a href="'+v.url+'">'+v.title+'</a></li>';
+    });
+    $('.news-list ul').append(news_html);
+
+    var media_html = "";
+    $.each(data.media, function(k, v){
+      console.log(v);
+      media_html += '<div class="post">';
+      switch(v.type) {
+        case '':
+          media_html += '<a class="colorbox" href="'+v.photo+'" title="'+v.title+'">';
+        break;
+        case 'link':
+          media_html += '<a href="'+v.url+'" title="'+v.title+'" target="_blank">';
+        break;
+        case 'youtube':
+          media_html += '<a class="colorbox-youtube" data-id="'+v.url+'" title="'+v.title+'">';
+        break;
+      }
+      media_html += '<img src="'+v.photo+'"><span>'+v.title+'</span></a>';
+      if (v.date !== "") {
+        media_html += '<span class="date">'+v.date+'</span>';
+      }
+      media_html += '</div>';
+    });
+    $('.media-list').append(media_html);
+
+    var case_html = "";
+    $.each(data.case, function(k, v){
+      if (v.url !== "") {
+        case_html += '<div class="post"><a href="'+v.url+'" target="_blank">';
+        case_html += '<img src="'+v.photo+'"><span>'+v.title+'</span>';
+        case_html += '</a><span class="date">'+v.date+'</span></div>';
+      } else {
+        case_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'"><img src="'+v.photo+'"><span>'+v.title+'</span></a></div>';
+    
+      }
+    });
+    $('.case-list').append(case_html);
+
+    var activity_html = "";
+    $.each(data.activity, function(k, v){
+      activity_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'"><img src="'+v.photo+'"><span>'+v.title+'</span></a></div>';
+    });
+    $('.activity-list').append(activity_html);
+  });
 });
