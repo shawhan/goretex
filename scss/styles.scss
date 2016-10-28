@@ -165,8 +165,7 @@ span.link-down{
         	}
         }
         img {
-        	width: 100%;
-        	height: auto;
+            max-height: 65vh;
         }
         a{
             &.inline {
@@ -186,6 +185,10 @@ span.link-down{
                 display: inline-block;
             }
         }
+        .embed-responsive.embed-responsive-16by9 {
+            max-width: 60vw;
+            margin: 0 auto;
+        }
         .post-list {
         	.post {
         		width: 31%; 
@@ -195,6 +198,10 @@ span.link-down{
         		vertical-align: top;
                 text-align: left;
                 line-height: 1.5em;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
         		span {
         			font-weight: bold;
         		}
@@ -233,6 +240,10 @@ span.link-down{
                     margin: 10px 0;
                 }
             }
+            img {
+                width: 100%;
+                height: auto;
+            }
             .post-list {
                 .post {
                     width: 48%; 
@@ -244,6 +255,9 @@ span.link-down{
                         margin-right: 0px;
                     }
                 }
+            }
+            .embed-responsive.embed-responsive-16by9 {
+                max-width: 90vw;
             }
         }
     } 
