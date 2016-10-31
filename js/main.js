@@ -66,6 +66,17 @@ jQuery(function($){
             $("body").css({"overflow-y":"visible"});
         }
     });
+  }).on("mouseover", ".marquee", function(e){
+    $('.marquee').marquee('pause');
+  }).on("mouseout", ".marquee", function(e){
+    $('.marquee').marquee('resume');
+  });
+
+  $('.marquee').marquee({
+    duration: 3000,
+    delayBeforeStart: 10,
+    direction: 'up',
+    duplicated: true
   });
   
   $.ajax({
@@ -109,7 +120,8 @@ jQuery(function($){
           media_html += '<a class="colorbox-youtube" data-id="'+v.url+'" title="'+v.title+'">';
         break;
       }
-      media_html += '<img src="'+v.photo+'"><span>'+v.title+'</span></a>';
+      media_html += '<img src="img/banner-1.jpg"><span>'+v.title+'</span></a>';
+      // media_html += '<img src="'+v.photo+'"><span>'+v.title+'</span></a>';
       if (v.date !== "") {
         media_html += '<span class="date">'+v.date+'</span>';
       }
