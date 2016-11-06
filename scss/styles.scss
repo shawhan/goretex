@@ -197,13 +197,14 @@ span.link-down{
         }
         .post-list {
         	.post {
-        		width: 31%; 
+        		width: 23%; 
         		display: inline-block;
         		margin-right: 2%;
                 margin-top: 2%;
         		vertical-align: top;
                 text-align: left;
                 line-height: 1.5em;
+                float: left;
                 img {
                     width: 100%;
                     height: auto;
@@ -214,7 +215,7 @@ span.link-down{
         		a {
         			display: inline-block;
         		}
-        		&:nth-child(3n) {
+        		&:nth-child(4n) {
         			margin-right: 0px;
         		}
         	}
@@ -255,9 +256,6 @@ span.link-down{
                 .post {
                     width: 48%; 
                     margin-right: 2%;
-                    &:nth-child(3n) {
-                        margin-right: 2%;
-                    }
                     &:nth-child(2n) {
                         margin-right: 0px;
                     }
