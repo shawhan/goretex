@@ -120,8 +120,10 @@ jQuery(function($){
           media_html += '<a class="colorbox-youtube" data-id="'+v.url+'" title="'+v.title+'">';
         break;
       }
-      media_html += '<img src="img/banner-1.jpg"><span>'+v.title+'</span></a>';
-      // media_html += '<img src="'+v.photo+'"><span>'+v.title+'</span></a>';
+      media_html += '<div class="item"><div class="cover"></div><img src="img/banner-1.jpg"></div>';
+      // media_html += '<div class="item"><div class="cover"></div><img src="'+v.photo+'"></div>';
+      
+      media_html += '<span>'+v.title+'</span></a>';
       if (v.date !== "") {
         media_html += '<span class="date">'+v.date+'</span>';
       }
@@ -156,8 +158,9 @@ jQuery(function($){
     $.each(data.case, function(k, v){
       if (v.url !== "") {
         case_html += '<div class="post"><a href="'+v.url+'" target="_blank">';
-        case_html += '<img src="'+v.photo+'"><span>'+v.title+'</span>';
-        case_html += '</a><span class="date">'+v.date+'</span></div>';
+        case_html += '<div class="item"><div class="cover"></div><img src="'+v.photo+'"></div>';
+        case_html += '<span>'+v.title+'</span></a>';
+        case_html += '<span class="date">'+v.date+'</span></div>';
       } else {
         case_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'"><img src="'+v.photo+'"><span>'+v.title+'</span></a></div>';
       }
@@ -186,7 +189,9 @@ jQuery(function($){
 
     var activity_html = "";
     $.each(data.activity, function(k, v){
-      activity_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'"><img src="'+v.photo+'"><span>'+v.title+'</span></a></div>';
+      activity_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'">';
+      activity_html += '<div class="item"><div class="cover"></div><img src="'+v.photo+'"></div>';
+      activity_html += '<span>'+v.title+'</span></a></div>';
     });
     $('.activity-list').append(activity_html);
 
