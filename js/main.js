@@ -120,9 +120,7 @@ jQuery(function($){
           media_html += '<a class="colorbox-youtube" data-id="'+v.url+'" title="'+v.title+'">';
         break;
       }
-      media_html += '<div class="item"><div class="cover"></div><img src="img/banner-1.jpg"></div>';
-      // media_html += '<div class="item"><div class="cover"></div><img src="'+v.photo+'"></div>';
-      
+      media_html += '<div class="item"><div class="cover"></div><img src="'+v.cover+'"></div>';
       media_html += '<span>'+v.title+'</span></a>';
       if (v.date !== "") {
         media_html += '<span class="date">'+v.date+'</span>';
@@ -156,14 +154,20 @@ jQuery(function($){
 
     var case_html = "";
     $.each(data.case, function(k, v){
+      case_html += '<div class="post">';
+
       if (v.url !== "") {
-        case_html += '<div class="post"><a href="'+v.url+'" target="_blank">';
-        case_html += '<div class="item"><div class="cover"></div><img src="'+v.photo+'"></div>';
-        case_html += '<span>'+v.title+'</span></a>';
-        case_html += '<span class="date">'+v.date+'</span></div>';
+        case_html += '<a href="'+v.url+'" target="_blank">';  
       } else {
-        case_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'"><img src="'+v.photo+'"><span>'+v.title+'</span></a></div>';
+        case_html += '<a class="colorbox" href="'+v.photo+'" title="'+v.title+'">';
       }
+
+      case_html += '<div class="item"><div class="cover"></div><img src="'+v.photo+'"></div>';
+      case_html += '<span>'+v.title+'</span></a>';
+      if (v.date !== "") {
+        case_html += '<span class="date">'+v.date+'</span>';
+      }
+      case_html += '</div>';
     });
     $('.case-list').append(case_html);
 
@@ -201,7 +205,6 @@ jQuery(function($){
     } else {
       $('.activity-list .post:lt(8)').addClass('show-post');
       $('.activity-list').append('<button class="btn more-btn">Read More</button>');
-
 
       $('.activity-list .more-btn').click(function(e){
         e.stopPropagation();
