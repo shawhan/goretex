@@ -32,7 +32,17 @@ jQuery(function($){
     }, 800, function () {
       window.location.hash = hash;
     });
-
+  }).on("click", "#photo-carasoul a", function(e){
+    e.preventDefault();
+    var link = $(this).attr('href');
+    var link_array = ["#case","#about","#qa","#media","#activity","#contact"];
+    if (link !== "") {
+      if (link_array.indexOf(link) !== -1) {
+          $('#menu a[href="'+link+'"]').click();
+        } else {
+          window.open(link,'_blank');
+        }
+    }
   }).on("click", ".link-down", function(e){
     e.preventDefault();
     $('#menu a[href="#about"').click();
