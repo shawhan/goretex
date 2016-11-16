@@ -157,9 +157,9 @@ textarea {
     }
 }
 
-span.link-down{
+span.link-down {
   text-align:center;
-  font-size: 3em;
+  font-size: 2em;
   i{
     color: #333;
     cursor:pointer;
@@ -379,6 +379,19 @@ span.link-down{
 }
 
 @media only screen and (max-width: 667px) {
+    .marquee {
+        height: 50px;
+        a {
+            font-size: 24px;
+            line-height: 2;
+        }
+    }
+    span.link-down {
+        background: #9ad6c5;
+        i {
+            color: #FFF;
+        }
+    }
     .block {
         &.no-padding {
             padding: 0px;
@@ -414,6 +427,9 @@ span.link-down{
             p {
                 line-height: 1.8em;
                 margin: 5px 0;
+                &.center {
+                    margin: 50px 0;
+                }
             }
             span {
                 &.title {
