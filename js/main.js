@@ -114,8 +114,6 @@ jQuery(function($){
       url: "http://data.beautynose.com.tw/output",
       dataType: 'json',
   }).done(function (data) {
-    console.log(data);
-
     var banner_html = "";
     $.each(data.banner, function(k, v){
       //TODO order by sort ASC
@@ -151,12 +149,15 @@ jQuery(function($){
         break;
       }
       media_html += '<div class="item"><div class="cover"></div><img src="'+v.cover+'"></div>';
-      media_html += '<span>'+v.title+'</span></a>';
-      if (v.date !== "") {
+      if ("media" in v && v.media !== "") {
+        media_html += '<span class="title">'+v.media+'</span>';
+      }
+      if ("date" in v && v.date !== "") {
         media_html += '<span class="date">'+v.date+'</span>';
       }
-      if (v.media !== "") {
-        media_html += '<span>'+v.media+'</span>';
+      media_html += '<span>'+v.title+'</span></a>';
+      if ("summary" in v && v.summary !== "") {
+        media_html += '<span class="summary">'+v.summary+'</span>';
       }
       media_html += '</div>';
     });
@@ -193,9 +194,12 @@ jQuery(function($){
       }
 
       case_html += '<div class="item"><div class="cover"></div><img src="'+v.photo+'"></div>';
-      case_html += '<span>'+v.title+'</span></a>';
-      if (v.date !== "") {
+      case_html += '<span class="title">'+v.title+'</span></a>';
+      if ("date" in v && v.date !== "") {
         case_html += '<span class="date">'+v.date+'</span>';
+      }
+      if ("summary" in v && v.summary !== "") {
+        case_html += '<span class="summary">'+v.summary+'</span>';
       }
       case_html += '</div>';
     });
@@ -225,7 +229,11 @@ jQuery(function($){
     $.each(data.activity, function(k, v){
       activity_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'">';
       activity_html += '<div class="item"><div class="cover"></div><img src="'+v.photo+'"></div>';
-      activity_html += '<span>'+v.title+'</span></a></div>';
+      activity_html += '<span class="title">'+v.title+'</span>';
+      if ("summary" in v && v.summary !== "") {
+        activity_html += '<span class="summary">'+v.summary+'</span>';
+      }
+      activity_html += '</a></div>';
     });
     $('.activity-list').append(activity_html);
 

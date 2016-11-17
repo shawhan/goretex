@@ -341,8 +341,20 @@ span.link-down {
         		span {
         			font-weight: bold;
                     color: #2e2e2e;
+                    font-size: 16px;
+                    line-height: 18px;
                     &.date {
                         color: #FFF;
+                        font-size: 14px;
+                        font-weight: 100;
+                    }
+                    &.title {
+                        font-size: 18px;
+                        font-weight: bold;
+                        margin: 5px 0 0 0;
+                    }
+                    &.summary {
+                        color: #595757;
                     }
                 }
         		a {
@@ -445,6 +457,17 @@ span.link-down {
                 .post {
                     width: 48%; 
                     margin-right: 2%;
+                    span {
+                        font-size: 24px;
+                        line-height: 28px;
+                        &.date {
+                            font-size: 22px;
+                        }
+                        &.title {
+                            font-size: 26px;
+                            margin: 10px 0 0 0;
+                        }
+                    }
                     &:nth-child(2n) {
                         margin-right: 0px;
                     }
