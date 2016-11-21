@@ -430,8 +430,8 @@ span.link-down {
             }
             &.contact {
                 background: transparent url(../img/mobile/title-contact.png) scroll no-repeat 50% 50%;
-                width: 460px;
-                height: 65px;
+                max-width: 100%;
+                background-size: contain;
             }
         }
         .content {
