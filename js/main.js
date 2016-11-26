@@ -1,4 +1,17 @@
 jQuery(function($){
+  var SortByCreate = function (a, b){
+    if (a.sort == b.sort) {
+      var a_create = new Date(`${a.create}:00+08:00`);
+      var b_create = new Date(`${b.create}:00+08:00`);
+
+      if (a_create === b_create) {
+        return 0;
+      }
+      return a_create < b_create ? 1 : -1;
+    }
+    return a.sort > b.sort ? 1 : -1;
+  }
+
   $('img.bg').each(function(i) {
     var url = $(this).attr('src').replace('/mobile/', '/pc/');
     if (window.matchMedia("screen and (max-width: 667px)").matches) {
@@ -113,8 +126,8 @@ jQuery(function($){
       dataType: 'json',
   }).done(function (data) {
     var banner_html = "";
+    data.banner.sort(SortByCreate);
     $.each(data.banner, function(k, v){
-      //TODO order by sort ASC
       banner_html += '<div class="item"><a href="'+v.url+'" target="_blank">';
       banner_html += '<img src="'+v.photo+'" alt="'+v.title+'"></a></div>';
     });
@@ -127,12 +140,14 @@ jQuery(function($){
     });
 
     var news_html = "";
+    data.news.sort(SortByCreate);
     $.each(data.news, function(k, v){
       news_html += '<li><a href="'+v.url+'">'+v.title+'</a></li>';
     });
     $('.news-list ul').append(news_html);
 
     var media_html = "";
+    data.media.sort(SortByCreate);
     $.each(data.media, function(k, v){
       media_html += '<div class="post">';
       switch(v.type) {
@@ -182,6 +197,7 @@ jQuery(function($){
     }
 
     var case_html = "";
+    data.case.sort(SortByCreate);
     $.each(data.case, function(k, v){
       case_html += '<div class="post">';
 
@@ -224,6 +240,7 @@ jQuery(function($){
     }
 
     var activity_html = "";
+    data.activity.sort(SortByCreate);
     $.each(data.activity, function(k, v){
       activity_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'">';
       activity_html += '<div class="item"><div class="cover"></div><img src="'+v.photo+'"></div>';
