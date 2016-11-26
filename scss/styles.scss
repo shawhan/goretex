@@ -351,6 +351,9 @@ span.link-down {
                         font-weight: bold;
                         margin: 5px 0 0 0;
                     }
+                    &.subtitle {
+                        font-size: 16px;
+                    }
                     &.summary {
                         color: #595757;
                     }
@@ -358,17 +361,22 @@ span.link-down {
         		a {
         			display: inline-block;
                     &:hover {
-                        .item .cover {
-                            background: rgba(0,0,0, .3);
-                            transition: background-color 0.2s ease-out;
+                        span {
+                            text-decoration: underline;
                         }
-                        .item img {
-                            -webkit-transform: scale(1.1);
-                            -moz-transform: scale(1.1);
-                            -ms-transform: scale(1.1);
-                            transform: scale(1.1);
+                        .item {
+                            .cover {
+                                background: rgba(0,0,0, .3);
+                                transition: background-color 0.2s ease-out;
+                            }
+                            img {
+                                -webkit-transform: scale(1.1);
+                                -moz-transform: scale(1.1);
+                                -ms-transform: scale(1.1);
+                                transform: scale(1.1);
 
-                            -webkit-filter: saturate(1.1);
+                                -webkit-filter: saturate(1.1);
+                            }
                         }
                     }
         		}

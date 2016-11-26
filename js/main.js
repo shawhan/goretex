@@ -153,7 +153,7 @@ jQuery(function($){
       if ("date" in v && v.date !== "") {
         media_html += '<span class="date">'+v.date+'</span>';
       }
-      media_html += '<span>'+v.title+'</span></a>';
+      media_html += '<span class="subtitle">'+v.title+'</span></a>';
       if ("summary" in v && v.summary !== "") {
         media_html += '<span class="summary">'+v.summary+'</span>';
       }
