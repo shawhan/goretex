@@ -113,12 +113,6 @@ jQuery(function($){
     $('.marquee').marquee('resume');
   });
 
-  $('.marquee').marquee({
-    duration: 3000,
-    delayBeforeStart: 20,
-    direction: 'up',
-    duplicated: true
-  });
   
   $.ajax({
       type: "GET",
@@ -142,9 +136,12 @@ jQuery(function($){
     var news_html = "";
     data.news.sort(SortByCreate);
     $.each(data.news, function(k, v){
-      news_html += '<li><a href="'+v.url+'">'+v.title+'</a></li>';
+      news_html += '<a href="'+v.url+'">'+v.title+'</a>';
     });
-    $('.news-list ul').append(news_html);
+    $('.marquee').append(news_html).marquee({
+      duration: 4000,
+      duplicated: true
+    });
 
     var media_html = "";
     data.media.sort(SortByCreate);
@@ -168,11 +165,11 @@ jQuery(function($){
       if ("date" in v && v.date !== "") {
         media_html += '<span class="date">'+v.date+'</span>';
       }
-      media_html += '<span class="subtitle">'+v.title+'</span></a>';
+      media_html += '<span class="subtitle">'+v.title+'</span>';
       if ("summary" in v && v.summary !== "") {
         media_html += '<span class="summary">'+v.summary+'</span>';
       }
-      media_html += '</div>';
+      media_html += '</a></div>';
     });
     $('.media-list').append(media_html);
 
@@ -208,14 +205,14 @@ jQuery(function($){
       }
 
       case_html += '<div class="item"><div class="cover"></div><img src="'+v.photo+'"></div>';
-      case_html += '<span class="title">'+v.title+'</span></a>';
+      case_html += '<span class="title">'+v.title+'</span>';
       if ("date" in v && v.date !== "") {
         case_html += '<span class="date">'+v.date+'</span>';
       }
       if ("summary" in v && v.summary !== "") {
         case_html += '<span class="summary">'+v.summary+'</span>';
       }
-      case_html += '</div>';
+      case_html += '</a></div>';
     });
     $('.case-list').append(case_html);
 
