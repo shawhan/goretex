@@ -479,21 +479,24 @@ span.link-down {
                 background: transparent url(../img/mobile/title-case.png) scroll no-repeat 50% 50%;
                 width: 273px;
                 height: 66px;
+                background-size: 220px;
             }
             &.activity {
                 background: transparent url(../img/mobile/title-activity.png) scroll no-repeat 50% 50%;
                 width: 270px;
                 height: 65px;
+                background-size: 220px;
             }
             &.media {
                 background: transparent url(../img/mobile/title-media.png) scroll no-repeat 50% 50%;
                 width: 272px;
                 height: 68px;
+                background-size: 220px;
             }
             &.contact {
                 background: transparent url(../img/mobile/title-contact.png) scroll no-repeat 50% 50%;
                 max-width: 100%;
-                background-size: contain;
+                background-size: 320px;
             }
         }
         .content {
