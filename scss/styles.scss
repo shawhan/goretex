@@ -220,27 +220,31 @@ span.link-down {
     h2 {
     	font-weight: bold;
     	font-size: 2.5em;
-    	margin: 20px auto !important;
+    	margin: 0px auto !important;
         color: transparent;
         &.case {
             background: transparent url(../img/pc/title-case.png) scroll no-repeat 50% 50%;
             width: 217px;
             height: 53px;
+            background-size: 200px;
         }
         &.activity {
             background: transparent url(../img/pc/title-activity.png) scroll no-repeat 50% 50%;
             width: 215px;
             height: 53px;
+            background-size: 200px;
         }
         &.media {
             background: transparent url(../img/pc/title-media.png) scroll no-repeat 50% 50%;
             width: 217px;
             height: 53px;
+            background-size: 200px;
         }
         &.contact {
             background: transparent url(../img/pc/title-contact.png) scroll no-repeat 50% 50%;
             width: 367px;
             height: 52px;
+            background-size: 280px;
         }
     }
     .content {
@@ -256,6 +260,7 @@ span.link-down {
         	}
             &.center {
                 text-align: center;
+                margin: 20px 0;
             }
         }
         span {
@@ -330,7 +335,7 @@ span.link-down {
             padding-top: 30px;
         	.post {
                 display: none;
-        		width: 23%; 
+        		width: 23%;
         		margin-right: 2%;
                 margin-top: 2%;
         		vertical-align: top;
@@ -372,12 +377,14 @@ span.link-down {
                         font-weight: 100;
                     }
                     &.title {
-                        font-size: 18px;
+                        font-size: 20px;
                         font-weight: bold;
+                        color: #895647;
                         margin: 5px 0 0 0;
                     }
-                    &.subtitle {
+                    &.media {
                         font-size: 16px;
+                        margin-top: 5px;
                     }
                     &.summary {
                         color: #595757;
@@ -434,9 +441,9 @@ span.link-down {
             .icon-bar {
                 background-color: #FFF;
             }
-        } 
+        }
     }
-    
+
     .marquee a {
         font-size: 24px;
     }
@@ -522,10 +529,9 @@ span.link-down {
                         }
                         &.title {
                             font-size: 26px;
-                            color: #2e2e2e;
                             margin: 10px 0 0 0;
                         }
-                        &.subtitle {
+                        &.media {
                             font-size: 24px;
                             color: #2e2e2e;
                         }
@@ -539,5 +545,5 @@ span.link-down {
                 max-width: 90vw;
             }
         }
-    } 
+    }
 }
