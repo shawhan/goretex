@@ -355,7 +355,7 @@ span.link-down {
                     position: relative;
                     overflow: hidden;
                     width: 100%;
-                    padding-bottom: 10px;
+                    padding-bottom: 5px;
                     .cover {
                         width: 100%;
                         height: 100%;
@@ -387,8 +387,8 @@ span.link-down {
                         display: inline-block;
                         width: 40%;
                         text-align: right;
-                        padding: 0px;
-                        vertical-align: top;
+                        padding: 0 10px 0 0;
+                        vertical-align: middle;
                     }
                     &.bdate {
                         color: #b4b4b5;
@@ -396,8 +396,8 @@ span.link-down {
                         display: inline-block;
                         width: 40%;
                         text-align: right;
-                        padding: 0px;
-                        vertical-align: top;
+                        padding: 0 10px 0 0;
+                        vertical-align: middle;
                     }
                     &.title {
                         font-size: 20px;
@@ -410,9 +410,9 @@ span.link-down {
                         color: #2e2e2e;
                         width: 60%;
                         display: inline-block;
-                        padding: 0px;
+                        padding: 0 0 0 10px;
                         margin: 0px;
-                        vertical-align: top;
+                        vertical-align: middle;
                     }
                     &.summary {
                         color: #595757;
@@ -475,7 +475,6 @@ span.link-down {
             }
         }
     }
-
     .marquee a {
         font-size: 12px;
     }
@@ -486,7 +485,6 @@ span.link-down {
         display: block;
     }
     span.link-down {
-        background: #9ad6c5;
         padding-top: 10px;
         font-size: 1.5em;
         i {
@@ -516,25 +514,25 @@ span.link-down {
             &.case {
                 background-size: contain !important;
                 width: auto;
-                height: 30px;
+                height: 35px;
                 background: transparent url(../img/mobile/title-case.png) scroll no-repeat 50% 50%;
             }
             &.activity {
                 background-size: contain !important;
                 width: auto;
-                height: 30px;
+                height: 35px;
                 background: transparent url(../img/mobile/title-activity.png) scroll no-repeat 50% 50%;
             }
             &.media {
                 background-size: contain !important;
                 width: auto;
-                height: 30px;
+                height: 35px;
                 background: transparent url(../img/mobile/title-media.png) scroll no-repeat 50% 50%;
             }
             &.contact {
                 background-size: contain !important;
                 width: auto;
-                height: 30px;
+                height: 35px;
                 background: transparent url(../img/mobile/title-contact.png) scroll no-repeat 50% 50%;
             }
         }
