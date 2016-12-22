@@ -194,7 +194,6 @@ textarea {
 span.link-down {
   text-align:center;
   font-size: 2em;
-  background-color: #9ad6c5;
   i{
     color: #333;
     cursor:pointer;
@@ -343,6 +342,13 @@ span.link-down {
         }
         .post-list {
             padding-top: 30px;
+            display: flex;
+            display: -mx-flexbox;
+            display: -webkit-flex;
+            flex-grow: 0;
+            -ms-flex-grow: 0;
+            -webkit-flex-grow: 0;
+            flex-wrap: wrap;
         	.post {
                 display: none;
         		width: 23%;
@@ -378,7 +384,6 @@ span.link-down {
                     }
                 }
         		span {
-        			font-weight: bold;
                     color: #2e2e2e;
                     font-size: 16px;
                     line-height: 20px;
@@ -388,7 +393,7 @@ span.link-down {
                         display: inline-block;
                         width: 40%;
                         text-align: right;
-                        padding: 0 10px 0 0;
+                        padding: 0 5px 0 0;
                         vertical-align: middle;
                     }
                     &.bdate {
@@ -397,7 +402,7 @@ span.link-down {
                         display: inline-block;
                         width: 40%;
                         text-align: right;
-                        padding: 0 10px 0 0;
+                        padding: 0 5px 0 0;
                         vertical-align: middle;
                     }
                     &.title {
@@ -405,18 +410,21 @@ span.link-down {
                         font-weight: bold;
                         color: #895647;
                         margin: 0px;
+                        padding: 0 5px;
                     }
                     &.media {
                         font-size: 16px;
                         color: #2e2e2e;
                         width: 60%;
                         display: inline-block;
-                        padding: 0 0 0 10px;
+                        font-weight: bold;
+                        padding: 0 0 0 5px;
                         margin: 0px;
                         vertical-align: middle;
                     }
                     &.summary {
                         color: #595757;
+                        padding: 0 5px;
                     }
                 }
         		a {
