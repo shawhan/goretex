@@ -81,7 +81,6 @@ jQuery(function($){
     $('#menu a[href="#about"').click();
 
   }).on("click", ".post a.colorbox", function(e){
-    console.log(1);
     e.preventDefault();
     if (window.matchMedia("screen and (max-width: 667px)").matches) {
       window.open($(this).attr('href'),'_blank');
@@ -173,7 +172,7 @@ jQuery(function($){
       media_html += '<span class="title">'+v.title+'</span>';
       if ("summary" in v && v.summary !== "") {
         if (v.summary.length > 39) {
-          v.summary = v.summary.slice(1, 39) + '⋯⋯';
+          v.summary = v.summary.slice(0, 39) + '⋯⋯';
         }
         media_html += '<span class="summary">'+v.summary+'</span>';
       }
@@ -226,7 +225,7 @@ jQuery(function($){
         case_html += '<span class="title">'+v.title+'</span>';
       if ("summary" in v && v.summary !== "") {
         if (v.summary.length > 39) {
-          v.summary = v.summary.slice(1, 39) + '⋯⋯';
+          v.summary = v.summary.slice(0, 39) + '⋯⋯';
         }
         case_html += '<span class="summary">'+v.summary+'</span>';
       }
@@ -262,7 +261,14 @@ jQuery(function($){
       if (typeof(v.date) === "undefined") {
         v.date = "";
       }
-      activity_html += '<div class="post"><a class="colorbox" href="'+v.photo+'" title="'+v.title+'">';
+
+      activity_html += '<div class="post">';
+      if (v.url !== "") {
+        activity_html += '<a href="'+v.url+'" target="_blank">';
+      } else {
+        activity_html += '<a class="colorbox" href="'+v.photo+'" title="'+v.title+'">';
+      }
+
       activity_html += '<div class="item"><div class="cover"></div><img src="'+v.photo+'"></div>';
       if (v.media !== "" ||  v.date !== "") {
         activity_html += '<span class="media">'+v.media+'</span>';
@@ -271,7 +277,7 @@ jQuery(function($){
       activity_html += '<span class="title">'+v.title+'</span>';
       if ("summary" in v && v.summary !== "") {
         if (v.summary.length > 39) {
-          v.summary = v.summary.slice(1, 39) + '⋯⋯';
+          v.summary = v.summary.slice(0, 39) + '⋯⋯';
         }
         activity_html += '<span class="summary">'+v.summary+'</span>';
       }
