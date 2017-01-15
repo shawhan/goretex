@@ -218,6 +218,11 @@ span.link-down {
     &.no-padding {
         padding: 0px;
     }
+    .title-image {
+        margin: 0 auto;
+        width: 20vw;
+        height: auto;
+    }
     h2 {
     	font-weight: bold;
     	font-size: 2.5em;
@@ -228,19 +233,6 @@ span.link-down {
         background-repeat: no-repeat;
         background-color: transparent;
         background-position: 50% 50%;
-        &.case {
-            background-image: url(../img/pc/title-case.png);
-        }
-        &.activity {
-            background-image: url(../img/pc/title-activity.png);
-        }
-        &.media {
-            background-image: url(../img/pc/title-media.png);
-        }
-        &.contact {
-            background-image: url(../img/pc/title-contact.png);
-            background-size: 30% auto;
-        }
     }
     .content {
         width: 90%;
@@ -512,24 +504,14 @@ span.link-down {
         padding: 25px 0;
         width: 100%;
 
+        .title-image {
+            width: 35vw;
+        }
         h2 {
             font-size: 2.0em;
             margin: 20px auto 0 auto !important;
             min-height: 35px;
             background-size: contain;
-            &.case {
-                background-image: url(../img/mobile/title-case.png);
-            }
-            &.activity {
-                background-image: url(../img/mobile/title-activity.png);
-            }
-            &.media {
-                background-image: url(../img/mobile/title-media.png);
-            }
-            &.contact {
-                background-image: url(../img/mobile/title-contact.png);
-                background-size: contain;
-            }
         }
         .content {
             margin: 15px auto;
