@@ -12,7 +12,7 @@ jQuery(function($){
     return a.sort > b.sort ? 1 : -1;
   }
 
-  $('img.bg').each(function(i) {
+  $('img.bg, img.title-image').each(function(i) {
     var url = $(this).attr('src').replace('/mobile/', '/pc/');
     if (window.matchMedia("screen and (max-width: 667px)").matches) {
       url = $(this).attr('src').replace('/pc/', '/mobile/');
@@ -38,7 +38,7 @@ jQuery(function($){
   }).scroll();
 
   window.onresize = function(e) {
-    $('img.bg').each(function(i) {
+    $('img.bg, img.title-image').each(function(i) {
       var url = $(this).attr('src').replace('/mobile/', '/pc/');
       if (window.matchMedia("screen and (max-width: 667px)").matches) {
         url = $(this).attr('src').replace('/pc/', '/mobile/');
