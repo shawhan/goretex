@@ -218,35 +218,21 @@ span.link-down {
     &.no-padding {
         padding: 0px;
     }
+    .title-image {
+        margin: 0 auto;
+        width: 20vw;
+        height: auto;
+    }
     h2 {
     	font-weight: bold;
     	font-size: 2.5em;
     	margin: 0px auto !important;
         color: transparent;
-        &.case {
-            background: transparent url(../img/pc/title-case.png) scroll no-repeat 50% 50%;
-            width: 217px;
-            height: 53px;
-            background-size: 200px;
-        }
-        &.activity {
-            background: transparent url(../img/pc/title-activity.png) scroll no-repeat 50% 50%;
-            width: 215px;
-            height: 53px;
-            background-size: 200px;
-        }
-        &.media {
-            background: transparent url(../img/pc/title-media.png) scroll no-repeat 50% 50%;
-            width: 217px;
-            height: 53px;
-            background-size: 200px;
-        }
-        &.contact {
-            background: transparent url(../img/pc/title-contact.png) scroll no-repeat 50% 50%;
-            width: 367px;
-            height: 52px;
-            background-size: 280px;
-        }
+        min-height: 53px;
+        background-size: 20% auto;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        background-position: 50% 50%;
     }
     .embed-responsive.embed-responsive-16by9 {
         margin: 0 auto;
@@ -518,33 +504,15 @@ span.link-down {
         }
         padding: 25px 0;
         width: 100%;
+
+        .title-image {
+            width: 35vw;
+        }
         h2 {
             font-size: 2.0em;
             margin: 20px auto 0 auto !important;
-            &.case {
-                background-size: contain !important;
-                width: auto;
-                height: 35px;
-                background: transparent url(../img/mobile/title-case.png) scroll no-repeat 50% 50%;
-            }
-            &.activity {
-                background-size: contain !important;
-                width: auto;
-                height: 35px;
-                background: transparent url(../img/mobile/title-activity.png) scroll no-repeat 50% 50%;
-            }
-            &.media {
-                background-size: contain !important;
-                width: auto;
-                height: 35px;
-                background: transparent url(../img/mobile/title-media.png) scroll no-repeat 50% 50%;
-            }
-            &.contact {
-                background-size: contain !important;
-                width: auto;
-                height: 35px;
-                background: transparent url(../img/mobile/title-contact.png) scroll no-repeat 50% 50%;
-            }
+            min-height: 35px;
+            background-size: contain;
         }
         .embed-responsive.embed-responsive-16by9 {
             max-width: 90vw;

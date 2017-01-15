@@ -12,7 +12,7 @@ jQuery(function($){
     return a.sort > b.sort ? 1 : -1;
   }
 
-  $('img.bg').each(function(i) {
+  $('img.bg, img.title-image').each(function(i) {
     var url = $(this).attr('src').replace('/mobile/', '/pc/');
     if (window.matchMedia("screen and (max-width: 667px)").matches) {
       url = $(this).attr('src').replace('/pc/', '/mobile/');
@@ -38,7 +38,7 @@ jQuery(function($){
   }).scroll();
 
   window.onresize = function(e) {
-    $('img.bg').each(function(i) {
+    $('img.bg, img.title-image').each(function(i) {
       var url = $(this).attr('src').replace('/mobile/', '/pc/');
       if (window.matchMedia("screen and (max-width: 667px)").matches) {
         url = $(this).attr('src').replace('/pc/', '/mobile/');
@@ -210,19 +210,23 @@ jQuery(function($){
       }
 
       case_html += '<div class="post">';
-
-      if (v.url !== "") {
-        case_html += '<a href="'+v.url+'" target="_blank">';
-      } else {
-        case_html += '<a class="colorbox" href="'+v.photo+'" title="'+v.title+'">';
+      switch(v.type) {
+        case '':
+          case_html += '<a class="colorbox" href="'+v.photo+'" title="'+v.title+'">';
+        break;
+        case 'link':
+          case_html += '<a href="'+v.url+'" title="'+v.title+'" target="_blank">';
+        break;
+        case 'youtube':
+          case_html += '<a class="colorbox-youtube" data-id="'+v.url+'" title="'+v.title+'">';
+        break;
       }
-
-      case_html += '<div class="item"><div class="cover"></div><img src="'+v.photo+'"></div>';
+      case_html += '<div class="item"><div class="cover"></div><img src="'+v.cover+'"></div>';
       if (v.media !== "" ||  v.date !== "") {
         case_html += '<span class="media">'+v.media+'</span>';
         case_html += '<span class="date">'+v.date+'</span>';
       }
-        case_html += '<span class="title">'+v.title+'</span>';
+      case_html += '<span class="title">'+v.title+'</span>';
       if ("summary" in v && v.summary !== "") {
         if (v.summary.length > 39) {
           v.summary = v.summary.slice(0, 39) + '⋯⋯';
@@ -263,13 +267,18 @@ jQuery(function($){
       }
 
       activity_html += '<div class="post">';
-      if (v.url !== "") {
-        activity_html += '<a href="'+v.url+'" target="_blank">';
-      } else {
-        activity_html += '<a class="colorbox" href="'+v.photo+'" title="'+v.title+'">';
+      switch(v.type) {
+        case '':
+          activity_html += '<a class="colorbox" href="'+v.photo+'" title="'+v.title+'">';
+        break;
+        case 'link':
+          activity_html += '<a href="'+v.url+'" title="'+v.title+'" target="_blank">';
+        break;
+        case 'youtube':
+          activity_html += '<a class="colorbox-youtube" data-id="'+v.url+'" title="'+v.title+'">';
+        break;
       }
-
-      activity_html += '<div class="item"><div class="cover"></div><img src="'+v.photo+'"></div>';
+      activity_html += '<div class="item"><div class="cover"></div><img src="'+v.cover+'"></div>';
       if (v.media !== "" ||  v.date !== "") {
         activity_html += '<span class="media">'+v.media+'</span>';
         activity_html += '<span class="bdate">'+v.date+'</span>';
