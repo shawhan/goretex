@@ -112,7 +112,6 @@ jQuery(function($){
     $('.marquee').marquee('resume');
   });
 
-
   $.ajax({
       type: "GET",
       url: "http://data.beautynose.com.tw/output",

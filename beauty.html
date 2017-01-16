@@ -25,13 +25,34 @@
 <link rel="stylesheet" type="text/css" href="css/rotator.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+<script type="text/javascript">
+$(function () {
+  // $.ajax({
+  //     type: "GET",
+  //     url: "http://data.beautynose.com.tw/beauty_count",
+  //     dataType: 'json',
+  // }).done(function (count) {
+  //   console.log(count);
+  // });
 
-
-
-
-
-
-
+  $('#beautyform').submit(function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+    $.ajax({
+        type: "POST",
+        url: "http://data.beautynose.com.tw/input",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success:function(data){
+          alert('表單送出成功！');
+          window.location.reload();
+        }
+    });
+  });
+});
+</script>
 <body>
 
 <div id="wallpaper">
@@ -267,10 +288,19 @@
     <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">內容 & 辦法</span>
   </div>
  <div class="form_content w3-left w3-padding-16">
-<ol><li>活動期間：即日起~2017/01/30</li>
-<li>活動辦法：寫下「您最想改善鼻子的什麼問題。」，填妥報名資料後分享至Facebook，標記@萊亞美人 美麗執念，就有機會知道住家附近哪裡有卡麥拉診所/改造機會或美麗小禮哦！</li><li>所有資料用於抽獎使用，請安心填寫</li></ol>
+<ol><li>活動期間：即日起~2017/03/31止</li>
+<li>活動辦法： 寫下「您最想改善鼻子的什麼問題？」，填妥報名資料後分享至Facebook，標記 @萊亞美人 美麗執念，就有機會知道住家附近哪裡有卡麥拉診所／改造機會或美麗小禮哦！</li><li>注意事項：-所有上傳至本活動網站之照片及資料皆會保密，僅作為活動聯繫依據務必完整且正確無誤，如因資料不正確以致未能符合領獎程序，將不另外通知或補寄抽獎小禮。
+<p><br>
+-本活動之獎項不得轉換、轉讓或折換現金，主辦單位保留更換等值贈品之權利。
+<p><br>
+-若您所提供之個人資料，經檢舉或本公司發現不足以確認您的身份真實性或有冒用、盜用、資料不實等情形，本公司有權取消得獎資格。
+<p><br>
+-您了解此一同意符合個人資料保護法及相關法規之要求，具有書面同意本公司蒐集、處理及使用您的個人資料。
+<p><br>
+如您對您的個人資料有查詢、請求閱覽、補充或更正，請求停止蒐集、處理或利用及請求刪除之疑問，請email至漂亮美鼻<a href="mailto:transbeauty99@gmail.com"><u>transbeauty99@gmail.com</u></a>，我們將為您處理。
+</li></ol>
 </div>
-  <form class="w3-container" action="" target="_blank">
+  <form id="beautyform" class="w3-container" enctype="multipart/form-data" method="POST">
     <div class="w3-group">
       <label>＊姓名</label>
       <input class="w3-input w3-border w3-hover-border-black" style="width:99%;" type="text" name="Name" required>
@@ -293,16 +323,14 @@
       <label>Email</label>
       <input class="w3-input w3-border w3-hover-border-black" style="width:99%;" type="text" name="Email" required>
     </div>
-     <form>
+
     <div class="w3-group">
       <label>＊最想改善鼻子的什麼問題</label>
       <input class="w3-input w3-border w3-hover-border-black " style="width:98%;" name="Subject" required>
 
-     <input size="20" type="file" name="file" >
-      <button type="submit" class="w3-btn  w3-padding-3">上傳照片後分享至facebook</button>
+      <input size="20" type="file" name="file" >
+      上傳照片後分享至facebook
     </div>
-    </form>
-
 
     <button type="submit" class="w3-btn w3-btn-block w3-padding-12">Send</button>
   </form>
