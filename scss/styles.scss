@@ -234,6 +234,11 @@ span.link-down {
         background-color: transparent;
         background-position: 50% 50%;
     }
+    .embed-responsive.embed-responsive-16by9 {
+        margin: 0 auto;
+        width: 90%;
+        min-height: 3265px;
+    }
     .content {
         width: 90%;
         margin: 0 auto;
@@ -321,10 +326,6 @@ span.link-down {
             &:hover {
                 text-decoration: none;
             }
-        }
-        .embed-responsive.embed-responsive-16by9 {
-            max-width: 60vw;
-            margin: 0 auto;
         }
         .post-list {
             padding-top: 30px;
@@ -513,6 +514,9 @@ span.link-down {
             min-height: 35px;
             background-size: contain;
         }
+        .embed-responsive.embed-responsive-16by9 {
+            max-width: 90vw;
+        }
         .content {
             margin: 15px auto;
             width: 100%;
@@ -561,9 +565,6 @@ span.link-down {
                         margin-right: 0px;
                     }
                 }
-            }
-            .embed-responsive.embed-responsive-16by9 {
-                max-width: 90vw;
             }
         }
     }
