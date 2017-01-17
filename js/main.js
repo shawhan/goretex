@@ -21,6 +21,11 @@ jQuery(function($){
     $(this).attr('src', url);
   });
 
+  $('.beauty iframe').load(function() {
+    var h = this.contentWindow.document.body.offsetHeight + 10;
+    $('.beauty').css('height', h);
+  });
+
   $(window).scroll(function() {
     var windowScroll = $(window).scrollTop();
     $('.main-cocontainer section').each(function(i) {
