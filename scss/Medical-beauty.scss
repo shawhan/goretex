@@ -13,15 +13,11 @@ body {
 }
 
 #layout {
-  width: 1280px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 25px;
-  padding-right: 25px;
+  width: 100%;
+  padding: 0 0 20px 0;
   position: relative;
   background-color: #FFF;
   font-family: "微軟正黑體";
-  padding-bottom: 20px;
 }
 
 #title {
@@ -46,21 +42,16 @@ body {
 }
 
 article {
-  padding-top: 15px;
-  padding-right: 5px;
-  padding-bottom: 15px;
-  padding-left: 5px;
+  padding: 15px 0;
 }
 
 .Contact {
   width: 97%;
+  padding: 15px 0;
+  margin: 0 auto;
   height: auto;
   overflow: hidden;
-  padding-top: 15px;
-  padding-bottom: 15px;
   background-color: #f9f9f9;
-  margin-right: 5px;
-  margin-left: 5px;
   border: 1px solid #e8e8e8;
 }
 
@@ -113,25 +104,24 @@ nav {
 
 dl.theme {
   width: 22%;
-  padding: 9px;
   background: #f9f9f9;
   border: 1px solid #e8e8e8;
   display: inline-block;
   vertical-align: top;
   transition: all ease 0.8s;
   border-radius: 1px;
-  margin-top: 0;
-  margin-right: 0.3em;
-  margin-bottom: 10px;
-  margin-left: 0.3em;
+  padding: 9px;
+  margin: 0 0 10px 10px;
+
   &:hover {
     box-shadow: 0 0 5px rgba(20%, 20%, 40%, 0.5);
     border: 1px solid #fff;
     cursor: pointer;
   }
   &:nth-child(4n+1) {
-    margin-left: 0.65em;
+    margin-left: 0px;
   }
+
   dt {
     margin-bottom: 2px;
     width: 280px;
@@ -461,7 +451,6 @@ html {
 @media only screen and (max-width: 1199px) {
   /* theme */
   dl.theme {
-    width: 44;
     dt {
       width: 100%;
       height: auto;
@@ -471,9 +460,8 @@ html {
     }
   }
   #layout {
-    padding-left: 0px;
     width: 98%;
-    padding-right: 0px;
+    margin: 10px auto;
   }
   article {
     padding-left: 0px;
@@ -505,9 +493,6 @@ html {
   dl.theme {
     width: 21%;
     margin: 0 0.2em 1em 0.2em;
-    &:nth-child(4n+1) {
-      margin-left: 0.6em;
-    }
   }
 }
 
@@ -515,33 +500,24 @@ html {
   /* theme */
   dl.theme {
     width: 45%;
-    margin: 0 0.5% 2% 0.5%;
-    &:nth-child(4n+1) {
-      margin-left: 0;
-    }
+    margin: 0 0 2% 0.5%;
     &:nth-child(2n+1) {
-      margin-left: 1.5%;
+      margin-left: 0px;
     }
   }
 }
 
 @media only screen and (max-width: 640px) {
   /* theme */
-  /*/
-
-  /*/
   dl.theme {
-    &:nth-child(2n+1) {
-      margin-left: auto;
-    }
     width: 42%;
     margin: 0 auto 3% auto;
-    &:nth-child(4n+1) {
-      margin-left: 0;
-    }
-    &:nth-child(2n+1) {
-      margin-left: 1%;
-    }
+    // &:nth-child(4n+1) {
+    //   margin-left: 0;
+    // }
+    // &:nth-child(2n+1) {
+    //   margin-left: 1%;
+    // }
   }
   .w3-btn-block {
     width: 100%;

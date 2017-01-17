@@ -234,10 +234,13 @@ span.link-down {
         background-color: transparent;
         background-position: 50% 50%;
     }
-    .embed-responsive.embed-responsive-16by9 {
+    .beauty {
         margin: 0 auto;
-        width: 90%;
+        width: 95%;
         min-height: 3265px;
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+        overflow-y: scroll;
     }
     .content {
         width: 90%;
