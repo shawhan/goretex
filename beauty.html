@@ -35,8 +35,7 @@ $(function() {
     $('#beautyform').submit(function(e) {
         e.preventDefault();
         var formData = new FormData(this);
-        // var share_url = "https://www.facebook.com/dialog/feed?app_id=1411746902193012&display=popup&link="+window.location.origin+"&redirect_uri="+window.location.href;
-        var share_url = "https://www.facebook.com/dialog/feed?app_id=449707358384403&display=popup&link="+window.location.origin+"&redirect_uri="+window.location.href;
+        var share_url = "https://www.facebook.com/dialog/feed?app_id=1411746902193012&display=popup&link="+window.location.origin+"&redirect_uri="+window.location.href;
         $.ajax({
             type: "POST",
             url: "http://data.beautynose.com.tw/input",
