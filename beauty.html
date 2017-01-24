@@ -10,7 +10,7 @@
     <meta name="copyright" content="醫美公司">
     <meta name="description" content="醫美是你最好的選擇">
 </head>
-<link rel="stylesheet" type="text/css" href="css/Medical-beauty.css?v=2">
+<link rel="stylesheet" type="text/css" href="css/Medical-beauty.css?v=3">
 <link rel="stylesheet" type="text/css" href="css/rotator.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
@@ -35,6 +35,7 @@ $(function() {
     $('#beautyform').submit(function(e) {
         e.preventDefault();
         var formData = new FormData(this);
+        var share_url = "https://www.facebook.com/dialog/feed?app_id=1411746902193012&display=popup&link="+window.location.origin+"&redirect_uri="+window.location.href;
         $.ajax({
             type: "POST",
             url: "http://data.beautynose.com.tw/input",
@@ -43,8 +44,7 @@ $(function() {
             contentType: false,
             processData: false,
             success: function(data) {
-            		window.open('https://www.facebook.com/share.php?u='+window.location.origin);
-                // alert('表單送出成功，別忘了分享至 Facebook 並且 @萊亞美人 美麗執念 噢');
+            		window.open(share_url);
                 window.location.reload();
             }
         });
@@ -272,46 +272,48 @@ $(function() {
                   </div>
                   <div class="form_content w3-left w3-padding-16">
                       <ol>
-                          <li>活動期間：即日起~2017/03/31止</li>
+                          <li>活動期間：即日起~2017/04/30止</li>
                           <li>活動辦法： 寫下「您最想改善鼻子的什麼問題？」，填妥報名資料後分享至Facebook，標記 @萊亞美人 美麗執念，就有機會知道住家附近哪裡有卡麥拉診所／改造機會或美麗小禮哦！</li>
-                          <li>注意事項：-所有上傳至本活動網站之照片及資料皆會保密，僅作為活動聯繫依據務必完整且正確無誤，如因資料不正確以致未能符合領獎程序，將不另外通知或補寄抽獎小禮。
-                              <p>
-                                  <br> -本活動之獎項不得轉換、轉讓或折換現金，主辦單位保留更換等值贈品之權利。
-                                  <p>
-                                      <br> -若您所提供之個人資料，經檢舉或本公司發現不足以確認您的身份真實性或有冒用、盜用、資料不實等情形，本公司有權取消得獎資格。
-                                      <p>
-                                          <br> -您了解此一同意符合個人資料保護法及相關法規之要求，具有書面同意本公司蒐集、處理及使用您的個人資料。
-                                          <p>
-                                              <br> 如您對您的個人資料有查詢、請求閱覽、補充或更正，請求停止蒐集、處理或利用及請求刪除之疑問，請email至漂亮美鼻
-                                              <a href="mailto:transbeauty99@gmail.com"><u>transbeauty99@gmail.com</u></a>，我們將為您處理。
+
+                          <li>注意事項：
+                            <p>-所有上傳至本活動網站之照片及資料皆會保密，僅作為活動聯繫依據務必完整且正確無誤，如因資料不正確以致未能符合領獎程序，將不另外通知或補寄抽獎小禮。</p>
+                            <p>-本活動之獎項不得轉換、轉讓或折換現金，主辦單位保留更換等值贈品之權利。</p>
+                            <p>-若您所提供之個人資料，經檢舉或本公司發現不足以確認您的身份真實性或有冒用、盜用、資料不實等情形，本公司有權取消得獎資格。</p>
+                            <p>-您了解此一同意符合個人資料保護法及相關法規之要求，具有書面同意本公司蒐集、處理及使用您的個人資料。
+                            <p>-如您對您的個人資料有查詢、請求閱覽、補充或更正，請求停止蒐集、處理或利用及請求刪除之疑問，請email至漂亮美鼻 <a href="mailto:transbeauty99@gmail.com">transbeauty99@gmail.com</a>，我們將為您處理。</p>
                           </li>
                       </ol>
                   </div>
                   <form id="beautyform" class="w3-container" enctype="multipart/form-data" method="POST">
                       <div class="w3-group">
-                          <label>＊姓名</label>
+                          <label><span class="red">＊</span>姓名</label>
                           <input class="w3-input w3-border w3-hover-border-black" style="width:99%;" type="text" name="Name" required>
                       </div>
                       <div class="w3-group">
-                          <label>＊Facebook暱稱</label>
-                          <input class="w3-input w3-border w3-hover-border-black" style="width:99%;" type="text" name="facebook" required>
+                          <label>Facebook暱稱(選填 如果有填,專業醫師可優先評估)</label>
+                          <input class="w3-input w3-border w3-hover-border-black" style="width:99%;" type="text" name="facebook">
                       </div>
                       <div class="w3-group">
-                          <label>＊聯絡電話</label>
+                          <label><span class="red">＊</span>聯絡電話</label>
                           <input class="w3-input w3-border w3-hover-border-black" style="width:99%;" type="text" name="txtMobile" required>
                       </div>
                       <div class="w3-group">
-                          <label>＊地址</label>
-                          <input class="w3-input w3-border w3-hover-border-black" style="width:99%;" type="text" name="address" required>
+                          <label><span class="red">＊</span>居住地</label>
+                          <select name="address" required>
+                            <option value="北部">北部</option>
+                            <option value="中部">中部</option>
+                            <option value="南部">南部</option>
+                            <option value="東部">東部</option>
+                          </select>
                       </div>
                       <div class="w3-group">
                           <label>Email</label>
-                          <input class="w3-input w3-border w3-hover-border-black" style="width:99%;" type="text" name="Email" required>
+                          <input class="w3-input w3-border w3-hover-border-black" style="width:99%;" type="text" name="Email">
                       </div>
                       <div class="w3-group">
-                          <label>＊最想改善鼻子的什麼問題</label>
+                          <label><span class="red">＊</span>最想改善鼻子的什麼問題</label>
                           <input class="w3-input w3-border w3-hover-border-black " style="width:98%;" name="Subject" required>
-                          <input size="20" type="file" name="file">
+                          <input size="20" type="file" name="file">（如有上傳,專業醫師可優先評估）
                       </div>
                       <button type="submit" class="w3-btn w3-btn-block w3-padding-12">Send</button>
                   </form>
