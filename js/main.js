@@ -12,6 +12,19 @@ jQuery(function($){
     return a.sort > b.sort ? 1 : -1;
   }
 
+  var search = window.location.search.substring(1);
+  if( search !== '') {
+    var query = search ? JSON.parse('{"' + window.location.search.substring(1).replace(/&/g, '","').replace(/=/g,'":"') + '"}',
+        function(key, value) {
+            return key === "" ? value : decodeURIComponent(value)
+        }
+    ) : {};
+    if (query.hasOwnProperty('post_id') && query.post_id.length !== 0) {
+      alert('表單送出成功！');
+      window.location.search = "";
+    }
+  }
+
   $('img.bg, img.title-image').each(function(i) {
     var url = $(this).attr('src').replace('/mobile/', '/pc/');
     if (window.matchMedia("screen and (max-width: 667px)").matches) {

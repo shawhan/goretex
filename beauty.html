@@ -35,6 +35,8 @@ $(function() {
     $('#beautyform').submit(function(e) {
         e.preventDefault();
         var formData = new FormData(this);
+        // var share_url = "https://www.facebook.com/dialog/feed?app_id=1411746902193012&display=popup&link="+window.location.origin+"&redirect_uri="+window.location.href;
+        var share_url = "https://www.facebook.com/dialog/feed?app_id=449707358384403&display=popup&link="+window.location.origin+"&redirect_uri="+window.location.href;
         $.ajax({
             type: "POST",
             url: "http://data.beautynose.com.tw/input",
@@ -43,8 +45,7 @@ $(function() {
             contentType: false,
             processData: false,
             success: function(data) {
-            		window.open('https://www.facebook.com/share.php?u='+window.location.origin);
-                // alert('表單送出成功，別忘了分享至 Facebook 並且 @萊亞美人 美麗執念 噢');
+            		window.open(share_url);
                 window.location.reload();
             }
         });
@@ -290,8 +291,8 @@ $(function() {
                           <input class="w3-input w3-border w3-hover-border-black" style="width:99%;" type="text" name="Name" required>
                       </div>
                       <div class="w3-group">
-                          <label><span class="red">＊</span>Facebook暱稱(選填 如果有填,專業醫師可優先評估)</label>
-                          <input class="w3-input w3-border w3-hover-border-black" style="width:99%;" type="text" name="facebook" required>
+                          <label>Facebook暱稱(選填 如果有填,專業醫師可優先評估)</label>
+                          <input class="w3-input w3-border w3-hover-border-black" style="width:99%;" type="text" name="facebook">
                       </div>
                       <div class="w3-group">
                           <label><span class="red">＊</span>聯絡電話</label>
