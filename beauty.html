@@ -13,47 +13,57 @@
 <link rel="stylesheet" type="text/css" href="css/Medical-beauty.css?v=4">
 <link rel="stylesheet" type="text/css" href="css/rotator.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/moment.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
-<script type="text/javascript" src="js/gotop.js"></script>
 <script type="text/javascript">
 $(function() {
-    $.ajax({
-        type: "GET",
-        url: "http://data.beautynose.com.tw/beauty_count",
-        dataType: 'json',
-    }).done(function(count) {
-        var t = 1;
-        if(count > 6) {
-        	t = Math.floor(count/6);
-        	if(count >= 30) {
-	        	t = 6;
-	        }
-        }
-        $('.animation').empty().append('<img src="img/animation/'+t+'.gif?v=2"><span>已有'+count+'人報名</span>');
-    });
+    var now = moment().format('X');
+    var end = moment("2017-04-30 23:59:59").format('X');
+    if (now <= end) {
+      //報名尚未截止
+      $('.banner a').append('<img src="img/beauty-banner.png">');
+      $.ajax({
+          type: "GET",
+          url: "http://data.beautynose.com.tw/beauty_count",
+          dataType: 'json',
+      }).done(function(count) {
+          var t = 1;
+          if(count > 6) {
+            t = Math.floor(count/6);
+            if(count >= 30) {
+              t = 6;
+            }
+          }
+          $('.animation').empty().append('<img src="img/animation/'+t+'.gif?v=2"><span>已有'+count+'人報名</span>');
+      });
 
-    $('#beautyform').submit(function(e) {
-        e.preventDefault();
-        var formData = new FormData(this);
-        var share_url = "https://www.facebook.com/dialog/feed?app_id=1411746902193012&display=popup&link="+window.location.origin+"&redirect_uri="+window.location.href;
-        window.open(share_url);
+      $('#beautyform').submit(function(e) {
+          e.preventDefault();
+          var formData = new FormData(this);
+          var share_url = "https://www.facebook.com/dialog/feed?app_id=1411746902193012&display=popup&link="+window.location.origin+"&redirect_uri="+window.location.href;
+          window.open(share_url);
 
-        $.ajax({
-            type: "POST",
-            url: "http://data.beautynose.com.tw/input",
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false
-        }).done(function (output) {
-          window.location.reload();
-        });
-    });
+          $.ajax({
+              type: "POST",
+              url: "http://data.beautynose.com.tw/input",
+              data: formData,
+              cache: false,
+              contentType: false,
+              processData: false
+          }).done(function (output) {
+            window.location.reload();
+          });
+      });
+    } else {
+      $('.banner a').append('<img src="img/beauty-banner-end.png">');
+      $('.animation').remove();
+      $('#beauty-form-block').remove();
+    }
 });
 </script>
 <body>
   <div id="wallpaper">
-      <div class="banner"><a href="#beauty-form-block"><img src="img/beauty-banner.png"></a></div>
+      <div class="banner"><a href="#beauty-form-block"></a></div>
       <div id="layout">
           <div id="content">
               <article>

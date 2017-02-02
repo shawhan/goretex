@@ -12,6 +12,13 @@ jQuery(function($){
     return a.sort > b.sort ? 1 : -1;
   }
 
+  var now = moment().format('X');
+  var end = moment("2017-04-30 23:59:59").format('X');
+  if (now <= end) {
+    //報名尚未截止
+    $('#top').addClass('show');
+  }
+
   var search = window.location.search.substring(1);
   if( search !== '') {
     var query = search ? JSON.parse('{"' + window.location.search.substring(1).replace(/&/g, '","').replace(/=/g,'":"') + '"}',
@@ -35,8 +42,8 @@ jQuery(function($){
   });
 
   $('.beauty iframe').load(function() {
-    var h = this.contentWindow.document.body.offsetHeight + 10;
-    $('.beauty').css('height', h);
+      var h = this.contentWindow.document.body.offsetHeight + 10;
+      $('.beauty').css('height', h);
   });
 
   $(window).scroll(function() {
@@ -94,6 +101,10 @@ jQuery(function($){
           window.open(link,'_blank');
         }
     }
+  }).on("click", "#top", function(e){
+    e.preventDefault();
+    $('#menu a[href="#form"').click();
+
   }).on("click", ".link-down", function(e){
     e.preventDefault();
     $('#menu a[href="#about"').click();
@@ -124,10 +135,6 @@ jQuery(function($){
             $("body").css({"overflow-y":"visible"});
         }
     });
-  // }).on("mouseover", ".marquee", function(e){
-  //   $('.marquee').marquee('pause');
-  // }).on("mouseout", ".marquee", function(e){
-  //   $('.marquee').marquee('resume');
   });
 
   $.ajax({
