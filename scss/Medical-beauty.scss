@@ -12,9 +12,28 @@ body {
   background-position: center top;
 }
 
+.banner {
+  a {
+    display: block;
+    padding-top: 15px;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .animation {
   text-align: center;
   height: 94px;
+  span {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    color: #011e3d;
+    line-height: 94px;
+    vertical-align: top;
+  }
 }
 #layout {
   width: 100%;
