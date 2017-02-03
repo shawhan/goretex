@@ -1,1 +1,0 @@
-$(function(){$(window).scroll(function(){var o=$(window).height(),n=$(document).scrollTop();n>o?$("#gotop").fadeIn(500):$("#gotop").fadeOut(500)}),$("#gotop").click(function(o){o.preventDefault(),$(document.documentElement).animate({scrollTop:0},200),$(document.body).animate({scrollTop:0},200)})});
