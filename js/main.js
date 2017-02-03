@@ -16,7 +16,7 @@ jQuery(function($){
   var end = moment("2017-04-30 23:59:59").format('X');
   if (now <= end) {
     //報名尚未截止
-    $('#top').addClass('show');
+    $('#to_beauty').addClass('show');
   }
 
   var search = window.location.search.substring(1);
@@ -101,7 +101,7 @@ jQuery(function($){
           window.open(link,'_blank');
         }
     }
-  }).on("click", "#top", function(e){
+  }).on("click", "#to_beauty", function(e){
     e.preventDefault();
     $('#menu a[href="#form"').click();
 
