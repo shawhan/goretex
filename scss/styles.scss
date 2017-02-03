@@ -97,6 +97,7 @@ textarea {
     &.show {
        display: block;
     }
+    cursor: pointer;
     display: none;
     background: transparent url(../img/top.png) scroll no-repeat 50% 50%;
     width: 125px;

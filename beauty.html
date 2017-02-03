@@ -10,11 +10,10 @@
     <meta name="copyright" content="醫美公司">
     <meta name="description" content="醫美是你最好的選擇">
 </head>
-<link rel="stylesheet" type="text/css" href="css/Medical-beauty.css?v=4">
+<link rel="stylesheet" type="text/css" href="css/Medical-beauty.css?v=6">
 <link rel="stylesheet" type="text/css" href="css/rotator.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 <script type="text/javascript" src="js/moment.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
 <script type="text/javascript">
 $(function() {
     var now = moment().format('X');
@@ -22,6 +21,11 @@ $(function() {
     if (now <= end) {
       //報名尚未截止
       var banner_url = 'img/pc/beauty-banner.png';
+      if (window.matchMedia("screen and (max-width: 667px)").matches) {
+        banner_url = banner_url.replace('/pc/', '/mobile/');
+      }
+      $('.banner').append('<a href="#beauty-form-block"><img src="'+banner_url+'"></a>');
+
       $.ajax({
           type: "GET",
           url: "http://data.beautynose.com.tw/beauty_count",
@@ -56,19 +60,18 @@ $(function() {
       });
     } else {
       var banner_url = 'img/pc/beauty-banner-end.png';
+      if (window.matchMedia("screen and (max-width: 667px)").matches) {
+        banner_url = banner_url.replace('/pc/', '/mobile/');
+      }
+      $('.banner').append('<img src="'+banner_url+'">');
       $('.animation').remove();
       $('#beauty-form-block').remove();
     }
-
-    if (window.matchMedia("screen and (max-width: 667px)").matches) {
-      banner_url = banner_url.replace('/pc/', '/mobile/');
-    }
-    $('.banner a').append('<img src="'+banner_url+'">');
 });
 </script>
 <body>
   <div id="wallpaper">
-      <div class="banner"><a href="#beauty-form-block"></a></div>
+      <div class="banner"></div>
       <div id="layout">
           <div id="content">
               <article>
