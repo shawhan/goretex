@@ -103,8 +103,13 @@ jQuery(function($){
     }
   }).on("click", "#to_beauty", function(e){
     e.preventDefault();
-    // $('#menu a[href="#form"').click();
-    $('html, body').animate({scrollTop : 0},800);
+    $("#menu li.active").removeClass('active');
+    $('#menu a[href="#form"]').parent().addClass('active');
+    $('html, body').stop().animate({
+      'scrollTop': $("#form").offset().top - ($('.navbar-header').height()/2)
+    }, 800, function () {
+      window.location.hash = "#form";
+    });
 
   }).on("click", ".link-down", function(e){
     e.preventDefault();
