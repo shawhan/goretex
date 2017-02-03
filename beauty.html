@@ -10,53 +10,60 @@
     <meta name="copyright" content="醫美公司">
     <meta name="description" content="醫美是你最好的選擇">
 </head>
-<link rel="stylesheet" type="text/css" href="css/Medical-beauty.css?v=3">
+<link rel="stylesheet" type="text/css" href="css/Medical-beauty.css?v=4">
 <link rel="stylesheet" type="text/css" href="css/rotator.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/moment.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
-<script type="text/javascript" src="js/gotop.js"></script>
 <script type="text/javascript">
 $(function() {
-    $.ajax({
-        type: "GET",
-        url: "http://data.beautynose.com.tw/beauty_count",
-        dataType: 'json',
-    }).done(function(count) {
-        var t = 1;
-        if(count > 6) {
-        	t = Math.floor(count/6);
-        	if(count >= 30) {
-	        	t = 6;
-	        }
-        }
-        $('.animation').empty().append('<img src="img/animation/'+t+'.gif?v=1">');
-    });
+    var now = moment().format('X');
+    var end = moment("2017-04-30 23:59:59").format('X');
+    if (now <= end) {
+      //報名尚未截止
+      $('.banner a').append('<img src="img/beauty-banner.png">');
+      $.ajax({
+          type: "GET",
+          url: "http://data.beautynose.com.tw/beauty_count",
+          dataType: 'json',
+      }).done(function(count) {
+          var t = 1;
+          if(count > 6) {
+            t = Math.floor(count/6);
+            if(count >= 30) {
+              t = 6;
+            }
+          }
+          $('.animation').empty().append('<img src="img/animation/'+t+'.gif?v=2"><span>已有'+count+'人報名</span>');
+      });
 
-    $('#beautyform').submit(function(e) {
-        e.preventDefault();
-        var formData = new FormData(this);
-        var share_url = "https://www.facebook.com/dialog/feed?app_id=1411746902193012&display=popup&link="+window.location.origin+"&redirect_uri="+window.location.href;
-        window.open(share_url);
+      $('#beautyform').submit(function(e) {
+          e.preventDefault();
+          var formData = new FormData(this);
+          var share_url = "https://www.facebook.com/dialog/feed?app_id=1411746902193012&display=popup&link="+window.location.origin+"&redirect_uri="+window.location.href;
+          window.open(share_url);
 
-        $.ajax({
-            type: "POST",
-            url: "http://data.beautynose.com.tw/input",
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false
-        }).done(function (output) {
-          window.location.reload();
-        });
-    });
+          $.ajax({
+              type: "POST",
+              url: "http://data.beautynose.com.tw/input",
+              data: formData,
+              cache: false,
+              contentType: false,
+              processData: false
+          }).done(function (output) {
+            window.location.reload();
+          });
+      });
+    } else {
+      $('.banner a').append('<img src="img/beauty-banner-end.png">');
+      $('.animation').remove();
+      $('#beauty-form-block').remove();
+    }
 });
 </script>
 <body>
   <div id="wallpaper">
-  		<div class="animation"></div>
-      <div id="title">
-          <nav><a href="#beautyform" class="css_btn_class">我要變美！！</a></nav>
-      </div>
+      <div class="banner"><a href="#beauty-form-block"></a></div>
       <div id="layout">
           <div id="content">
               <article>
@@ -225,8 +232,6 @@ $(function() {
                       <a href="http://www.fabulous-clinic.com/service/293" title="法泊時尚診所" target="_blank"><img src="img/beauty/img_7-2a.png"></a></dt>
 
                       </dl>
-
-
                       <dl class="theme">
                           <dt>
                       <a href="http://www.lejadeclinic.com/c2cnt-c2_11267-c2-369.html" title="高雄-萊佳形象美學診所" target="_blank"><img src="img/beauty/img_7-3a.png"></a></dt>
@@ -265,8 +270,9 @@ $(function() {
                       </dl>
                   </div>
               </article>
+              <div class="animation"></div>
               <!-- Contact -->
-              <div class="Contact">
+              <div class="Contact" id="beauty-form-block">
                   <div class="w3-center w3-padding-64">
                       <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">內容 & 辦法</span>
                   </div>
