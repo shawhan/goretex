@@ -10,18 +10,22 @@
     <meta name="copyright" content="醫美公司">
     <meta name="description" content="醫美是你最好的選擇">
 </head>
-<link rel="stylesheet" type="text/css" href="css/Medical-beauty.css?v=4">
+<link rel="stylesheet" type="text/css" href="css/Medical-beauty.css?v=6">
 <link rel="stylesheet" type="text/css" href="css/rotator.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 <script type="text/javascript" src="js/moment.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
 <script type="text/javascript">
 $(function() {
     var now = moment().format('X');
     var end = moment("2017-04-30 23:59:59").format('X');
     if (now <= end) {
       //報名尚未截止
-      $('.banner a').append('<img src="img/beauty-banner.png">');
+      var banner_url = 'img/pc/beauty-banner.png';
+      if (window.matchMedia("screen and (max-width: 667px)").matches) {
+        banner_url = banner_url.replace('/pc/', '/mobile/');
+      }
+      $('.banner').append('<a href="#beauty-form-block"><img src="'+banner_url+'"></a>');
+
       $.ajax({
           type: "GET",
           url: "http://data.beautynose.com.tw/beauty_count",
@@ -40,7 +44,7 @@ $(function() {
       $('#beautyform').submit(function(e) {
           e.preventDefault();
           var formData = new FormData(this);
-          var share_url = "https://www.facebook.com/dialog/feed?app_id=1411746902193012&display=popup&link="+window.location.origin+"&redirect_uri="+window.location.href;
+          var share_url = "https://www.facebook.com/dialog/feed?app_id=1411746902193012&display=popup&link="+window.location.origin;
           window.open(share_url);
 
           $.ajax({
@@ -55,7 +59,11 @@ $(function() {
           });
       });
     } else {
-      $('.banner a').append('<img src="img/beauty-banner-end.png">');
+      var banner_url = 'img/pc/beauty-banner-end.png';
+      if (window.matchMedia("screen and (max-width: 667px)").matches) {
+        banner_url = banner_url.replace('/pc/', '/mobile/');
+      }
+      $('.banner').append('<img src="'+banner_url+'">');
       $('.animation').remove();
       $('#beauty-form-block').remove();
     }
@@ -63,7 +71,7 @@ $(function() {
 </script>
 <body>
   <div id="wallpaper">
-      <div class="banner"><a href="#beauty-form-block"></a></div>
+      <div class="banner"></div>
       <div id="layout">
           <div id="content">
               <article>
@@ -142,7 +150,7 @@ $(function() {
 
                       <dl class="theme">
                           <dt>
-                      <a href="http://www.chicing.com.tw/case_detail.php?id=23" title="群英診所" target="_blank"><img src="img/beauty/img_6-4a.png"></a></dt>
+                      <a href="http://www.chicing.com.tw/product-details/%E9%96%8B%E6%94%BE%E5%BC%8F%E9%9A%86%E9%BC%BB/" title="群英診所" target="_blank"><img src="img/beauty/img_6-4a.png"></a></dt>
 
                       </dl>
                       <!--4-->
@@ -217,7 +225,7 @@ $(function() {
 
                       <dl class="theme">
                           <dt>
-                      <a href="http://www.chicing.com.tw/case_detail.php?id=11" title="群英診所" target="_blank"><img src="img/beauty/img_3-4a.png"></a></dt>
+                      <a href="http://www.chicing.com.tw/product-details/%E9%96%8B%E6%94%BE%E5%BC%8F%E9%9A%86%E9%BC%BB/" title="群英診所" target="_blank"><img src="img/beauty/img_3-4a.png"></a></dt>
 
                       </dl>
                       <!--7-->
