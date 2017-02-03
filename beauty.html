@@ -21,7 +21,7 @@ $(function() {
     var end = moment("2017-04-30 23:59:59").format('X');
     if (now <= end) {
       //報名尚未截止
-      $('.banner a').append('<img src="img/beauty-banner.png">');
+      var banner_url = 'img/pc/beauty-banner.png';
       $.ajax({
           type: "GET",
           url: "http://data.beautynose.com.tw/beauty_count",
@@ -55,10 +55,15 @@ $(function() {
           });
       });
     } else {
-      $('.banner a').append('<img src="img/beauty-banner-end.png">');
+      var banner_url = 'img/pc/beauty-banner-end.png';
       $('.animation').remove();
       $('#beauty-form-block').remove();
     }
+
+    if (window.matchMedia("screen and (max-width: 667px)").matches) {
+      banner_url = banner_url.replace('/pc/', '/mobile/');
+    }
+    $('.banner a').append('<img src="'+banner_url+'">');
 });
 </script>
 <body>
