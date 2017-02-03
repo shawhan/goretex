@@ -42,8 +42,19 @@ jQuery(function($){
   });
 
   $('.beauty iframe').load(function() {
-      var h = this.contentWindow.document.body.offsetHeight + 10;
+      var $iframe = $(this).contents();
+      var h = $iframe.find("body").height() + 10;
+      var scroll = $iframe.find("#beauty-form-block").offset().top;
       $('.beauty').css('height', h);
+
+      if (now <= end) {
+        $iframe.find(".banner img").on('click', function(e) {
+          e.preventDefault();
+          $('html, body').stop().animate({
+            'scrollTop': scroll + $(window).scrollTop()
+          }, 800);
+        });
+      }
   });
 
   $(window).scroll(function() {
