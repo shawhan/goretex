@@ -103,7 +103,8 @@ jQuery(function($){
     }
   }).on("click", "#to_beauty", function(e){
     e.preventDefault();
-    $('#menu a[href="#form"').click();
+    // $('#menu a[href="#form"').click();
+    $('html, body').animate({scrollTop : 0},800);
 
   }).on("click", ".link-down", function(e){
     e.preventDefault();
