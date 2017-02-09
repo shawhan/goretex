@@ -39,9 +39,8 @@ $(function() {
       $('#beautyform').submit(function(e) {
           e.preventDefault();
           var formData = new FormData(this);
-          var share_url = "https://www.facebook.com/dialog/feed?app_id=1411746902193012&display=popup&link="+window.location.origin;
+          var share_url = "https://www.facebook.com/dialog/feed?app_id=1411746902193012&display=popup&picture=http://beautynose.com.tw/img/activity-banner.jpg&link="+window.location.origin;
           window.open(share_url);
-
           $.ajax({
               type: "POST",
               url: "http://data.beautynose.com.tw/input",
